@@ -16,6 +16,7 @@
 		0395B89328DEF3EE00158382 /* NewsBoardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0395B89228DEF3EE00158382 /* NewsBoardUITestsLaunchTests.swift */; };
 		0395B8A028DEF65800158382 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0395B89F28DEF65800158382 /* HomeViewController.swift */; };
 		0395B8A328E05E3900158382 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0395B8A228E05E3800158382 /* APIKey.swift */; };
+		0395B8A628E05FA900158382 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0395B8A528E05FA900158382 /* News.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0395B89228DEF3EE00158382 /* NewsBoardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBoardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0395B89F28DEF65800158382 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0395B8A228E05E3800158382 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		0395B8A528E05FA900158382 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		0395B86E28DEF3EC00158382 /* NewsBoard */ = {
 			isa = PBXGroup;
 			children = (
+				0395B8A428E05F9700158382 /* Models */,
 				0395B8A128E05E1300158382 /* Config */,
 				0395B86F28DEF3EC00158382 /* AppDelegate.swift */,
 				0395B87128DEF3EC00158382 /* SceneDelegate.swift */,
@@ -133,6 +136,14 @@
 				0395B8A228E05E3800158382 /* APIKey.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		0395B8A428E05F9700158382 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0395B8A528E05FA900158382 /* News.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				0395B87028DEF3EC00158382 /* AppDelegate.swift in Sources */,
 				0395B87228DEF3EC00158382 /* SceneDelegate.swift in Sources */,
 				0395B8A328E05E3900158382 /* APIKey.swift in Sources */,
+				0395B8A628E05FA900158382 /* News.swift in Sources */,
 				0395B8A028DEF65800158382 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
