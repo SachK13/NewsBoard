@@ -14,6 +14,11 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .green
+        
+        NetworkManager.shared.getNews { news in
+            guard let news = news else { return }
+            print("News : \(news[0].title)")
+        }
     }
     
 
