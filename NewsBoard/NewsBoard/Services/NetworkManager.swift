@@ -17,6 +17,7 @@ class NetworkManager {
     private let topHeadLinesUS = "top-headlines?country=us"
     
     
+    // MARK: - News
     func getNews(completion: @escaping ([News]?) -> Void) {
         let urlString = "\(baseUrlString)\(topHeadLinesUS)&apiKey=\(APIKey.key)"
         
@@ -41,4 +42,35 @@ class NetworkManager {
             
         }.resume()
     }
+    
+    // MARK: - News Image
+    func getImage(for imageUrl: String, completion: @escaping (Data?) -> Void) {
+        guard let url = URL(string: imageUrl) else {
+            completion(nil)
+            return
+        }
+        
+        /// Check if image data is present in image cache or not
+        /// if it does get & pass it to completion handler
+        /// if not download image data from image url & save it to image cache
+        /// & pass it to completion handler
+        if let cacheImage = imageCache.object(forKey: NSString(string: imageUrl)) {
+            completion(cacheImage as Data)
+        } else {
+            let urlRequest = URLRequest(url: url)
+            
+            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                
+                guard error == nil, let imageData = data else {
+                    print("Failed to get Image Response")
+                    completion(nil)
+                    return
+                }
+                
+                self.imageCache.setObject(imageData as NSData, forKey: NSString(string: imageUrl))
+                completion(imageData)
+            }.resume()
+        }
+    }
 }
+ 
