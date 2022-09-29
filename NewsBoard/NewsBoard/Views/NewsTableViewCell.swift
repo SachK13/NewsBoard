@@ -12,7 +12,14 @@ final class NewsTableViewCell: UITableViewCell {
     var newsVM: NewsViewModel? {
         didSet {
             if let newsVM = newsVM {
-                
+                titleLabel.text = newsVM.title
+                NetworkManager.shared.getImage(for: newsVM.urlToImage) { data in
+                    guard let imageData = data else { return }
+                    DispatchQueue.main.async {
+                        // self.newsImageData = imageData
+                        self.newsImageView.image = UIImage(data: imageData)
+                    }
+                }
             }
         }
     }
@@ -62,16 +69,14 @@ final class NewsTableViewCell: UITableViewCell {
         ])
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         setupView()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
