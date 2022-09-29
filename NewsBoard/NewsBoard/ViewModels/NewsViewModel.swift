@@ -23,10 +23,21 @@ struct NewsViewModel {
     }
     
     var url: String {
-        return news.url ?? ""
+        return news.url?.getATSPolicySupportedURLString() ?? ""
     }
     
     var urlToImage: String {
-        return news.urlToImage ?? "https://www.kindpng.com/picc/m/182-1827064_breaking-news-banner-png-transparent-background-breaking-news.png"
+        return news.urlToImage?.getATSPolicySupportedURLString() ?? "https://www.kindpng.com/picc/m/182-1827064_breaking-news-banner-png-transparent-background-breaking-news.png"
+    }
+}
+
+extension String {
+    func getATSPolicySupportedURLString() -> String? {
+        guard var comps = URLComponents(string: self) else  {
+            return ""
+        }
+        comps.scheme = "https"
+        let httpsUrlString = comps.string
+        return httpsUrlString
     }
 }
