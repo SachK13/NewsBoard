@@ -8,7 +8,6 @@
 import UIKit
 
 final class HeaderView: UIView {
-
     var fontSize: CGFloat
     
     private lazy var headingLabel: UILabel = {
@@ -24,8 +23,10 @@ final class HeaderView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         let config = UIImage.SymbolConfiguration(pointSize: fontSize, weight: .bold)
-        imageView.image = UIImage(systemName: "circle.circle.fill",
-                                  withConfiguration: config)?.withRenderingMode(.alwaysOriginal)
+        imageView.image = UIImage(
+            systemName: "circle.circle.fill",
+            withConfiguration: config)?
+            .withRenderingMode(.alwaysOriginal)
         return imageView
     }()
     
@@ -34,8 +35,10 @@ final class HeaderView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         let config = UIImage.SymbolConfiguration(pointSize: fontSize, weight: .bold)
-        imageView.image = UIImage(systemName: "plus",
-                                  withConfiguration: config)?.withRenderingMode(.alwaysOriginal)
+        imageView.image = UIImage(
+            systemName: "plus",
+            withConfiguration: config)?
+            .withRenderingMode(.alwaysOriginal)
         return imageView
     }()
     

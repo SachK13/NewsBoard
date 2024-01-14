@@ -29,7 +29,7 @@ class NetworkManager {
         
         let urlRequest = URLRequest(url: newsUrl)
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard error == nil, let responseData = data else {
                 print("Failed to get News Response")
                 completion(nil)
@@ -37,10 +37,13 @@ class NetworkManager {
             }
             
             // Json Parsing For News
-            let newsEnvelope = try? JSONDecoder().decode(NewsEnvelope.self, from: responseData)
-            newsEnvelope == nil ? completion(nil) : completion(newsEnvelope!.articles)
-            
-        }.resume()
+            guard let newsEnvelope = try? JSONDecoder().decode(NewsEnvelope.self, from: responseData) else {
+                completion(nil)
+                return
+            }
+            completion(newsEnvelope.articles)
+        }
+        .resume()
     }
     
     // MARK: - News Image
@@ -59,8 +62,7 @@ class NetworkManager {
         } else {
             let urlRequest = URLRequest(url: url)
             
-            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-                
+            URLSession.shared.dataTask(with: urlRequest) { data, _, error in
                 guard error == nil, let imageData = data else {
                     print("Failed to get Image Response")
                     completion(nil)
@@ -69,7 +71,8 @@ class NetworkManager {
                 
                 self.imageCache.setObject(imageData as NSData, forKey: NSString(string: imageUrl))
                 completion(imageData)
-            }.resume()
+            }
+            .resume()
         }
     }
 }
