@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct APIKey {
+enum APIKey {
     static let key = "e8c93b0fe4d840d7836c19cd1c33718a"
 }

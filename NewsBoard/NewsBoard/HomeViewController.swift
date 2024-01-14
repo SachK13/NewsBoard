@@ -9,7 +9,6 @@ import UIKit
 import SafariServices
 
 class HomeViewController: UIViewController {
-
     var viewModel = NewsListViewModel()
     
     private lazy var headerView: HeaderView = {
@@ -63,7 +62,6 @@ class HomeViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -89,5 +87,4 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         safariViewController.modalPresentationStyle = .fullScreen
         present(safariViewController, animated: true)
     }
-    
 }

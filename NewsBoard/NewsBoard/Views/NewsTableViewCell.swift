@@ -8,7 +8,6 @@
 import UIKit
 
 final class NewsTableViewCell: UITableViewCell {
-
     var newsVM: NewsViewModel? {
         didSet {
             if let newsVM = newsVM {
@@ -78,5 +77,4 @@ final class NewsTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

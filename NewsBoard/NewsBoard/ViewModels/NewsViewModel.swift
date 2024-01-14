@@ -33,7 +33,7 @@ struct NewsViewModel {
 
 extension String {
     func getATSPolicySupportedURLString() -> String? {
-        guard var comps = URLComponents(string: self) else  {
+        guard var comps = URLComponents(string: self) else {
             return ""
         }
         comps.scheme = "https"

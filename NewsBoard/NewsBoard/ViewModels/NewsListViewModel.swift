@@ -8,12 +8,11 @@
 import Foundation
 
 class NewsListViewModel {
-    var newsVM = [NewsViewModel]()
+    var newsVM: [NewsViewModel] = []
     let reuseID = "NewsCell"
     
     func getNews(completion: @escaping ([NewsViewModel]) -> Void) {
         NetworkManager.shared.getNews { news in
-            
             guard let news = news else { return }
             let newsVM = news.map(NewsViewModel.init)
             
