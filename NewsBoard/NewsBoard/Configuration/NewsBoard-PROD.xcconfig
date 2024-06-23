@@ -1,0 +1,10 @@
+//
+//  NewsBoard-PROD.xcconfig
+//  NewsBoard
+//
+//  Created by Sachin Kadam on 23/06/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+BASE_URL = newsapi.org/v2/
