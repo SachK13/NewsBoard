@@ -13,13 +13,13 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
-    private let baseUrlString = "https://newsapi.org/v2/"
+    private let baseUrlString = API.baseURL
     private let topHeadLinesUS = "top-headlines?country=us"
     
     
     // MARK: - News
     func getNews(completion: @escaping ([News]?) -> Void) {
-        let urlString = "\(baseUrlString)\(topHeadLinesUS)&apiKey=\(APIKey.key)"
+        let urlString = "https://\(baseUrlString)\(topHeadLinesUS)&apiKey=\(API.newsAPIKey)"
         
         guard let newsUrl = URL(string: urlString) else {
             // Log Error
